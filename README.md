@@ -83,7 +83,7 @@ Left input Image, right generated image by the autoencoder. Prints also Loss-Fun
 Every Autoencoder inherit from `BaseAutoencoder.py` and should overwrite `encode`,`forward` and `loss_function` This work has implemented six different Autoenencoder for Usage. Feel free to extend this work :)
 
 | Encoding Autoencoder | Autoencoder Name | Description | Encoding Time
-| ------------- | ------------- | --------- | ---------------------------------|
+| ------ | ---- | ---- | ---------------------|
 | | `conv_maxpool_autoencoder.py`  | Autoencoder based on Convolutional Layers and Pooling Layers, afterwords an Bottleneck Layer. Afterwards Transposed Convolutional Layers are used | GPU: 0.4374ms <br /> CPU: 1.211ms
 | ![Alt text](./screenshots/Conv_MaxPool_big_example.png)  |  `conv_maxpool_big_autoencoder.py`| A deeper version of `conv_maxpool_autoencoder.py`  with more kernels used.
 | Content Cell  |  `conv_no_bottleneck_autoencoder.py`| Autoencoder with Convolutional and Maxpooling Layer, but without any bottleneck layer
