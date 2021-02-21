@@ -2,9 +2,9 @@
 # Procgen Autoencoders
 
 This repository was created in the internship Engineering Software Development WS2021 at the Karlsruhe Institute of Technology. 
-The goal of the internship was to create a Gym environment for the Procgen game _**Heist**_, which outputs a coding of an autoencoder as observation space. 
+The goal of the internship was to create a Gym environment for the Procgen game _**Heist**_, which outputs an encoding of an autoencoder as observation space. 
 
-This repository contains the created gym environments as well as scripts to train and create own gym environments for other procgen games.
+This repository contains the created gym environments in the `gym_autoencoder`folder  as well as scripts to train and create own gym environments for other procgen games.
 
 ## Installation
 1) Clone the repository
@@ -12,11 +12,8 @@ This repository contains the created gym environments as well as scripts to trai
 ```bash
 pip install -e .
 ```
-## Use Autoencoders
-
-1 ) Install Autoencoder using
-
-2 ) After you installed your package , you can create an instance of the environment with:
+## Use Gym-Environments
+After you installed your package , you can create an instance of the environment with:
 
 ```python
 import gym
@@ -37,6 +34,11 @@ gym_autoencoder:auto-no-bottleneck-v0
 gym_autoencoder:vae-alex-v0
 gym_autoencoder:vae-paper-v0
 ```
+
+The architectures used can be examined in the model_stubs folder. A short description can be found in the "Autoencoder Architectures" section.
+
+**Important note:** There are 6 Gym environments available, but for further use only `auto-unpool-v0` and `vae-alex-v0` should be used, as the other autoencoders do not provide useful encodings.
+
 
 ## Train your own Autoencoder with own Dataset
 
