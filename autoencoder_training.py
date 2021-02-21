@@ -6,8 +6,6 @@ import numpy as np
 import torch
 import yaml
 from torch.utils.data import Dataset
-from utils.torch_summary import summary
-from torchvision import transforms
 
 import performance_eval as perf
 from utils.NumpyDataLoader import NumpyDataLoader
