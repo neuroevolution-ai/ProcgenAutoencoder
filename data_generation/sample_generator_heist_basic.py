@@ -16,7 +16,7 @@ test_samples=[]
 
 number_of_samples=2000
 training_split = 10
-
+number_of_random_moves=10
 
 
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         env = gym.make("procgen:procgen-heist-v0", start_level=i, render_mode="rgb_array", use_backgrounds=False,
                        num_levels=0, distribution_mode="memory")
         observation = env.reset()
-        for j in range(10):
+        for j in range(number_of_random_moves):
             observation, rew, done, info = env.step(env.action_space.sample())
             env.render()
             if done:
