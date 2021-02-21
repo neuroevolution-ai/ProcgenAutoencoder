@@ -1,22 +1,28 @@
 
 # Procgen Autoencoders
 
+This repository was created in the internship Engineering Software Development WS2021 at the Karlsruhe Institute of Technology. 
+The goal of the internship was to create a Gym environment for the Procgen game _**Heist**_, which outputs a coding of an autoencoder as observation space. 
 
+This repository contains the created gym environments as well as scripts to train and create own gym environments for other procgen games.
 
-
-## Use Autoencoders
-
-1 ) Install Autoencoder using
+## Installation
+1) Clone the repository
+2) Execute the following command in the source folder
 ```bash
 pip install -e .
 ```
+## Use Autoencoders
+
+1 ) Install Autoencoder using
+
 2 ) After you installed your package , you can create an instance of the environment with:
 
 ```python
 import gym
 test_env = gym.make('gym_autoencoder:auto-unpool-v0')
 while(True):
-    old_observation, observation, rew, done, info = env.step(test_env.env.action_space.sample())
+    old_observation, observation, rew, done, info = test_env.step(test_env.action_space.sample())
     test_env.render(old_observation)
 ```
 You should than be able to see the the heist representation from the Autoencoder. The Agent starts making random moves.
@@ -57,7 +63,7 @@ Training generates Checkpoints if test loss gets better. Early Stopping is used 
 Speed of Autoencoder (GPU & CPU) will be tested with Batch Size 1 and 64. odel Architecture and Speed will 
 be saved in a `summary.txt` File.
 A Video will be created like featured below. Also Graph containing Train/Test Loss per Epoch will be saved.
-I you want to make further evaluations feel free to use the generated `metrics.npy` and the model itself.
+If you want to make further evaluations feel free to use the generated `metrics.npy` and the model itself.
 
 **Video Beispiel**
 
