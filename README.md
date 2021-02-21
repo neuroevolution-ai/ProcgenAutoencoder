@@ -82,13 +82,13 @@ Left input Image, right generated image by the autoencoder. Prints also Loss-Fun
 
 Every Autoencoder inherit from `BaseAutoencoder.py` and should overwrite `encode`,`forward` and `loss_function` This work has implemented six different Autoenencoder for Usage. Feel free to extend this work :)
 
-| First Header  | Autoencoder Name | Description
+| Encoding Autoencoder | Autoencoder Name | Description
 | ------------- | ------------- | --------- |
 | Content Cell  | `conv_maxpool_autoencoder.py`  | Autoencoder based on Convolutional Layers and Pooling Layers, afterwords an Bottleneck Layer. Afterwards Transposed Convolutional Layers are used
-| Content Cell  |  `conv_maxpool_big_autoencoder.py`| A deeper version of `conv_maxpool_autoencoder.py`  with more kernels used.
+| ![Alt text](./screenshots/Conv_MaxPool_big_example.png)  |  `conv_maxpool_big_autoencoder.py`| A deeper version of `conv_maxpool_autoencoder.py`  with more kernels used.
 | Content Cell  |  `conv_no_bottleneck_autoencoder.py`| Autoencoder with Convolutional and Maxpooling Layer, but without any bottleneck layer
-| Content Cell  | `conv_unpool.py` | Autoencoder with Convolutional, Maxpooling and afterwards Unpooling Layers. Inspired by https://mi.eng.cam.ac.uk/projects/segnet/ (Little Smaller Version, than Segnet)
-| Content Cell | `VAE_Paper.py` | Varitional-Autoencoder based on https://arxiv.org/pdf/1803.10122.pdf
-| Concnten Cell | `VAE_Alex.py` | Same Autoencoder as `VAE_Paper.py` , but Perceptional Loss from AlexNet is used
+| ![Alt text](./screenshots/Conv_Unpool_example.png)| `conv_unpool.py` | Autoencoder with Convolutional, Maxpooling and afterwards Unpooling Layers. Inspired by https://mi.eng.cam.ac.uk/projects/segnet/ (Little Smaller Version, than Segnet)
+| ![Alt text](./screenshots/VAE_Paper_example.png) aaaaaaaaaaaaaaaaaaa| `VAE_Paper.py`  | Varitional-Autoencoder based on https://arxiv.org/pdf/1803.10122.pdf
+| ![Alt text](./screenshots/VAE_Alex_example.png) | `VAE_Alex.py` | Same Autoencoder as `VAE_Paper.py` , but Perceptional Loss from AlexNet is used
 
 
