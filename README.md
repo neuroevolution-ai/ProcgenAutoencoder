@@ -12,6 +12,9 @@ This repository contains the created gym environments in the `gym_autoencoder`fo
 ```bash
 pip install -e .
 ```
+For full usage this additional pakets should be installed:
+- torchinfo : https://github.com/TylerYep/torchinfo
+   
 ## Use Gym-Environments
 After you installed your package , you can create an instance of the environment with:
 
@@ -42,13 +45,13 @@ The architectures used can be examined in the model_stubs folder. A short descri
 
 ## Train your own Autoencoder with own Dataset
 
-This section describes how you can generate Data and Train your Autoencoder yourself. If you just want to use the predefined Gym-Environments skip to
+This section describes how you can generate Data and Train your Autoencoder yourself. If you just want to use the predefined Gym-Environments you can skip reading this section.
 
 
 
 ### Generating Samples
 
-For Data Generation use the files provided in the data_generation Folder. Running `sample_generator_heist_basic.py` will result in a _training.npy_ and _test.npy_ for the Procgen Game Heist.
+For Data Generation use the files provided in the `data_generation` Folder. Running `sample_generator_heist_basic.py` will result in a _training.npy_ and _test.npy_ for the Procgen Game Heist.
 For a balanced Dataset (Equal Number of Pictures with Keys/Doors and without Keys/Doors) use `sample_generator_heist.py` 
 
 **Warning:**  `sample_generator_heist` needs ~20x time for Data Generation
@@ -56,7 +59,7 @@ For a balanced Dataset (Equal Number of Pictures with Keys/Doors and without Key
 ### Training Autoencoders
 After Generating samples run `autoencoder_training.py` Hyperparameters can be changed in the `training_hyperparameters.yaml` File. 
 
-Training generates Checkpoints if test loss gets better. Early Stopping is used (default=10)
+Training generates checkpoints if test loss gets better. Early Stopping is used (default=10)
 
 **Notes:** Autoencoder will be saved in specified save directory. After Training Autoencoder will be evaluated on different Metrics.
 
@@ -89,5 +92,3 @@ Every Autoencoder inherit from `BaseAutoencoder.py` and should overwrite `encode
 | Concnten Cell | `VAE_Alex.py` | Same Autoencoder as `VAE_Paper.py` , but Perceptional Loss from AlexNet is used
 
 
-
-## Training Autoencoders
