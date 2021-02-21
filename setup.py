@@ -1,9 +1,9 @@
 
+
 import setuptools
 from setuptools import setup
 
 
-print(setuptools.find_packages(where='autoencoder-procgen'))
 
 
 setup(name='gym_autoencoder',
