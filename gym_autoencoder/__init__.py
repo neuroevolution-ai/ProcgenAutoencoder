@@ -1,4 +1,7 @@
+import os
+
 from gym.envs.registration import register
+
 
 register(
     id='auto-unpool-v0',
