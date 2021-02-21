@@ -1,22 +1,35 @@
 
 # Procgen Autoencoders
 
-`print(Hello)`
+
 
 
 ## Use Autoencoders
 
 1 ) Install Autoencoder using
 ```bash
-cd gym_autoencoder
 pip install -e .
 ```
 2 ) After you installed your package , you can create an instance of the environment with:
 
 ```python
-import gym_autoencoder
-env = gym.make('auto-unpool-v0')
+import gym
+test_env = gym.make('gym_autoencoder:auto-unpool-v0')
+while(True):
+    old_observation, observation, rew, done, info = env.step(test_env.env.action_space.sample())
+    test_env.render(old_observation)
+```
+You should than be able to see the the heist representation from the Autoencoder. The Agent starts making random moves.
 
+In this repository there are 6 evironments for the game heist, with 6 different Autoencoder architectures namely:
+
+```
+gym_autoencoder:auto-unpool-v0
+gym_autoencoder:auto-maxpool-v0
+gym_autoencoder:auto-maxpool-big-v0
+gym_autoencoder:auto-no-bottleneck-v0
+gym_autoencoder:vae-alex-v0
+gym_autoencoder:vae-paper-v0
 ```
 
 ## Train your own Autoencoder with own Dataset
@@ -49,7 +62,7 @@ I you want to make further evaluations feel free to use the generated `metrics.n
 **Video Beispiel**
 
 Left input Image, right generated image by the autoencoder. Prints also Loss-Function 
-![Alt text](autoencoder-procgen/screenshots/video_example.png?raw=true "Video Example") 
+![Alt text](./screenshots/video_example.png?raw=true "Video Example") 
  
  
 
