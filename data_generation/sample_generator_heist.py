@@ -1,10 +1,12 @@
+import os
+
 import gym
 import numpy as np
 from PIL import Image
 from data_generation import balance_data
 import random
 
-output_dir = "/data/heist"
+output_dir = "/data/heist/"
 import cv2 as cv
 
 """
@@ -85,5 +87,6 @@ if __name__ == "__main__":
             cv.waitKey(1)
     env.close()
 
+    os.makedirs(output_dir, exist_ok=True)
     np.save(output_dir + "training_samples_memory_noBack_balanced", np.asarray(training_samples))
     np.save(output_dir + "test_samples_memory_noBack_balanced", np.asarray(test_samples))
