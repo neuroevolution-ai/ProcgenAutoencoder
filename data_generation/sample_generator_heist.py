@@ -4,7 +4,7 @@ from PIL import Image
 from data_generation import balance_data
 import random
 
-output_dir = "../"
+output_dir = "/data/heist"
 import cv2 as cv
 
 """

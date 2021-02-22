@@ -1,3 +1,4 @@
+import os
 
 import gym
 import numpy as np
@@ -9,7 +10,7 @@ Generates 2 Files, File format .npy
 """
 
 
-output_dir = "./"
+output_dir = "./data/heist/"
 
 training_samples=[]
 test_samples=[]
@@ -35,6 +36,8 @@ if __name__ == "__main__":
         else:
             training_samples.append(observation)
         env.close()
+
+    os.makedirs(output_dir, exist_ok=True)
 
     np.save(output_dir +"training_samples.npy", np.asarray(training_samples))
     np.save(output_dir +"test_samples.npy", np.asarray(test_samples))
