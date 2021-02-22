@@ -1,8 +1,8 @@
 #model-stub and model_save_name will be selected in the autoencoder_training.py file
 
 data_params:
-  training_filepath: "data/heist/training_samples_memory_noBack_balanced2.npy"
-  test_filepath: "data/heist/test_samples_memory_noBack_balanced2.npy"
+  training_filepath: "data/heist/training_samples.npy"
+  test_filepath: "data/heist/test_samples.npy"
 
 training_params:
   batch_size: 128
