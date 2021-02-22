@@ -62,13 +62,3 @@ class AutoencoderBasicEnv(gym.Env):
         obs = self._transform_render(ob)
         cv2.imshow("Result", obs)
         cv2.waitKey(1)
-
-    def close(self):
-        ...
-
-
-if __name__ == "__main__":
-    test_env = AutoencoderBasicEnv()
-    observation = test_env.reset()
-    while (True):
-        test_env.render()
