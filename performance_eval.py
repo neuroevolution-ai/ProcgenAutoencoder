@@ -6,7 +6,6 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from utils.torch_summary import summary
 from torchinfo import summary as sf
 from utils.NumpyDataLoader import NumpyDataLoader
 
