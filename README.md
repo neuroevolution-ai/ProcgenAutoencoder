@@ -75,7 +75,12 @@ If you want to make further evaluations feel free to use the generated `metrics.
 Left input Image, right generated image by the autoencoder. Prints also Loss-Function 
 ![Alt text](./screenshots/video_example.png?raw=true "Video Example") 
  
- 
+### Make Gym-Environment with trained Autoencoder
+
+Create a new python file that inherits from `auto_basic_env.AutoencoderBasicEnv` You need the path to the trained model,
+ the skeleton of the autoencoder and the dimension of the output vector. Orientate yourself on the existing environments. 
+ Also add your class in the `/gym_autoencoder/__init__.py.`
+ After that you should be able to run your autoencoder like descriped above.
 
 
 ## Autoencoder Architectures
