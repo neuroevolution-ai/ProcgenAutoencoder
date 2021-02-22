@@ -19,7 +19,7 @@ with open("training_hyperparameter.yaml", 'r') as file:
 parser = argparse.ArgumentParser(description='Parameter for Model and Model-Name')
 parser.add_argument('--name', type=str, default="ModelNew",
                     help='Name Model')
-parser.add_argument('--model_path', type=str, default="model_stubs.experimental.autoencoder_unpool",
+parser.add_argument('--model_path', type=str, default="model_stubs.conv_unpool",
                     help='Modul Stub')
 parser.add_argument('--num', type=int, default="32",
                     help='latent_dim')
@@ -46,7 +46,7 @@ def create_folder_structure(directory, name_model):
     '''
     model_path = directory + name_model + "/"
     if not os.path.exists(model_path):
-        os.makedirs(model_path)
+        os.makedirs(model_path, exist_ok=True)
     checkpoint_path = directory + name_model + "/checkpoints"
     if not os.path.exists(checkpoint_path):
         os.makedirs(checkpoint_path)
@@ -122,7 +122,7 @@ def test(model, test_loader, epoch):
             img = batch.float().cuda() / 255
             output = model(img)
             output.append(batch_size/number_samples)
-            test_loss += model.loss_function(output, input=img)
+            test_loss += model.loss_function(output, input=img).item()
     test_loss /= len(test_loader)
 
     print('Test Epoch:{}, Loss:{:.4f}'.format(epoch, float(test_loss)))
