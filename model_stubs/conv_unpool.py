@@ -1,7 +1,6 @@
 from torch import nn as nn
 from model_stubs.custom_layer import Conv2DBatchNormRelu
 from model_stubs.BaseAutoencoder import BaseAutoencoder
-from torchinfo import summary
 
 
 '''
