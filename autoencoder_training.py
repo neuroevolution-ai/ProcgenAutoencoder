@@ -21,8 +21,6 @@ parser.add_argument('--name', type=str, default="ModelNew",
                     help='Name Model')
 parser.add_argument('--model_path', type=str, default="model_stubs.conv_unpool",
                     help='Modul Stub')
-parser.add_argument('--num', type=int, default="32",
-                    help='latent_dim')
 
 args = parser.parse_args()
 config["logging_params"]['name'] = args.name
