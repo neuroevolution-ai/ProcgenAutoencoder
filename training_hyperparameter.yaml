@@ -1,0 +1,21 @@
+#model-stub and model_save_name will be selected in the autoencoder_training.py file
+# You can run the training with 'python autoencoder_training.py --name <NameAutoencoder> --model_path <path.to.model>
+# Simplifies the training of multiple models using a script
+
+data_params:
+  training_filepath: "data/heist/training_samples.npy"
+  test_filepath: "data/heist/test_samples.npy"
+
+training_params:
+  batch_size: 128
+  epochs: 50
+  LR: 0.003
+  weight_decay: 0.00
+  log_interval: 2  #N times Log Messages will be displayed
+  early_stopping: 5
+
+
+logging_params:
+  save_dir: "./trained_models/"
+  seed: 42
+    
