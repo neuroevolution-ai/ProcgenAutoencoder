@@ -24,6 +24,7 @@ number_of_samples = 60000
 training_split = 20
 next_function = 1
 number_of_random_moves = 10
+render=True
 
 
 def random_next_function():
@@ -70,21 +71,21 @@ if __name__ == "__main__":
         # Run Random
         for _ in range(number_of_random_moves):
             observation, rew, done, info = env.step(env.action_space.sample())
-            env.render()
             if done:
                 break
         observation = cv.cvtColor(observation, cv.COLOR_BGR2RGB)
         has = has_element(observation)
         if has:
-            if (generated_samples % training_split == 0):
+            if generated_samples % training_split == 0:
                 test_samples.append(observation)
             else:
                 training_samples.append(observation)
             generated_samples = generated_samples + 1
             random_next_function()
-            bigger_template = cv.resize(observation, (0, 0), fx=5, fy=5, interpolation=cv.INTER_AREA)
-            cv.imshow("Next Sample", bigger_template)
-            cv.waitKey(1)
+            if render:
+                bigger_template = cv.resize(observation, (0, 0), fx=5, fy=5, interpolation=cv.INTER_AREA)
+                cv.imshow("Next Sample", bigger_template)
+                cv.waitKey(1)
     env.close()
 
     os.makedirs(output_dir, exist_ok=True)

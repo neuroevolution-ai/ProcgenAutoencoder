@@ -28,7 +28,6 @@ if __name__ == "__main__":
         observation = env.reset()
         for j in range(number_of_random_moves):
             observation, rew, done, info = env.step(env.action_space.sample())
-            env.render()
             if done:
                 break
         if(i%training_split==0):
