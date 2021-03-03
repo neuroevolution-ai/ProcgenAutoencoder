@@ -1,5 +1,5 @@
 
-from gym_autoencoder.envs.auto_basic_env import AutoencoderBasicEnv
+from gym_autoencoder.heist.envs.auto_basic_env import AutoencoderBasicEnv
 
 
 class AutoencoderMaxPoolBigEnv(AutoencoderBasicEnv):

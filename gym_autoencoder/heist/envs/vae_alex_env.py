@@ -1,4 +1,4 @@
-from gym_autoencoder.envs.auto_basic_env import AutoencoderBasicEnv
+from gym_autoencoder.heist.envs.auto_basic_env import AutoencoderBasicEnv
 import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 print(dir_path)

@@ -1,7 +1,0 @@
-from gym_autoencoder.envs.auto_basic_env import AutoencoderBasicEnv
-from gym_autoencoder.envs.auto_no_bottlneck_env import AutoencoderNoBottleneckEnv
-from gym_autoencoder.envs.auto_unpool_env import AutoencoderUnpoolEnv
-from gym_autoencoder.envs.auto_maxpool_env import AutoencoderMaxPoolEnv
-from gym_autoencoder.envs.auto_maxpool_big_env import AutoencoderMaxPoolBigEnv
-from gym_autoencoder.envs.vae_alex_env import VaritionalAlexEnv
-from gym_autoencoder.envs.vae_paper_env import VaritionalPaperEnv
