@@ -182,7 +182,7 @@ def main():
                                                                         directory_checkpoint)
     path_model = save_model(current_best_model, directory_model, name, epoch_train_loss, epoch_test_loss)
 
-    perfor = perf.PerformanceEvaluation(directory_model, config['data_params']['model_path'],
+    perfor = perf.PerformanceEvaluation(directory_model, config['data_params']['model_name'],
                                         config['data_params']['test_filepath'], current_best_model)
     perfor.evaluation()
 
