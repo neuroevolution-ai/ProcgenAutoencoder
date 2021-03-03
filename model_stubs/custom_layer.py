@@ -14,7 +14,6 @@ class Conv2DBatchNormRelu(nn.Module):
             padding,
             bias=True,
             dilation=1,
-            with_bn=True,
     ):
         super(Conv2DBatchNormRelu, self).__init__()
 
@@ -26,12 +25,9 @@ class Conv2DBatchNormRelu(nn.Module):
                              bias=bias,
                              dilation=dilation, )
 
-        if with_bn:
-            self.cbr_unit = nn.Sequential(conv_mod,
+        self.cbr_unit = nn.Sequential(conv_mod,
                                           nn.BatchNorm2d(int(n_filters)),
                                           nn.ReLU(inplace=True))
-        else:
-            self.cbr_unit = nn.Sequential(conv_mod, nn.ReLU(inplace=True))
 
     def forward(self, inputs):
         outputs = self.cbr_unit(inputs)
@@ -48,7 +44,6 @@ class ConvTransposed2DBatchNormRelu(nn.Module):
             padding,
             bias=True,
             dilation=1,
-            with_bn=True,
     ):
         super(ConvTransposed2DBatchNormRelu, self).__init__()
 
@@ -60,12 +55,9 @@ class ConvTransposed2DBatchNormRelu(nn.Module):
                              bias=bias,
                              dilation=dilation, )
 
-        if with_bn:
-            self.cbr_unit = nn.Sequential(conv_mod,
+        self.cbr_unit = nn.Sequential(conv_mod,
                                           nn.BatchNorm2d(int(n_filters)),
                                           nn.ReLU(inplace=True))
-        else:
-            self.cbr_unit = nn.Sequential(conv_mod, nn.ReLU(inplace=True))
 
     def forward(self, inputs):
         outputs = self.cbr_unit(inputs)
@@ -82,7 +74,6 @@ class ConvTransposed2DBatchNorm(nn.Module):
             padding,
             bias=True,
             dilation=1,
-            with_bn=True,
     ):
         super(ConvTransposed2DBatchNorm, self).__init__()
 
@@ -94,12 +85,9 @@ class ConvTransposed2DBatchNorm(nn.Module):
                              bias=bias,
                              dilation=dilation, )
 
-        if with_bn:
-            self.cbr_unit = nn.Sequential(conv_mod,
+        self.cbr_unit = nn.Sequential(conv_mod,
                                           nn.BatchNorm2d(int(n_filters)),
                                           )
-        else:
-            self.cbr_unit = nn.Sequential(conv_mod)
 
     def forward(self, inputs):
         outputs = self.cbr_unit(inputs)
@@ -117,7 +105,6 @@ class ConvTransposed2DBatchNormLeakyRelu(nn.Module):
             padding,
             bias=True,
             dilation=1,
-            with_bn=True,
     ):
         super(ConvTransposed2DBatchNormLeakyRelu, self).__init__()
 
@@ -129,12 +116,9 @@ class ConvTransposed2DBatchNormLeakyRelu(nn.Module):
                              bias=bias,
                              dilation=dilation, )
 
-        if with_bn:
-            self.cbr_unit = nn.Sequential(conv_mod,
+        self.cbr_unit = nn.Sequential(conv_mod,
                                           nn.BatchNorm2d(int(n_filters)),
                                           nn.LeakyReLU(inplace=True))
-        else:
-            self.cbr_unit = nn.Sequential(conv_mod, nn.ReLU(inplace=True))
 
     def forward(self, inputs):
         outputs = self.cbr_unit(inputs)
@@ -152,7 +136,6 @@ class Conv2DBatchNormLeakyRelu(nn.Module):
             padding,
             bias=True,
             dilation=1,
-            with_bn=True,
     ):
         super(Conv2DBatchNormLeakyRelu, self).__init__()
 
@@ -164,12 +147,10 @@ class Conv2DBatchNormLeakyRelu(nn.Module):
                              bias=bias,
                              dilation=dilation, )
 
-        if with_bn:
-            self.cbr_unit = nn.Sequential(conv_mod,
+        self.cbr_unit = nn.Sequential(conv_mod,
                                           nn.BatchNorm2d(int(n_filters)),
                                           nn.LeakyReLU(inplace=True))
-        else:
-            self.cbr_unit = nn.Sequential(conv_mod, nn.ReLU(inplace=True))
+
 
     def forward(self, inputs):
         outputs = self.cbr_unit(inputs)
