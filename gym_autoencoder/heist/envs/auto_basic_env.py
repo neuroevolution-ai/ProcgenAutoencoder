@@ -10,11 +10,19 @@ from gym.spaces import Box
 class AutoencoderBasicEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, path_stub, path_model ,shape):
+    def __init__(self, path_stub, path_model ,shape, use_gpu=True):
         self.env = gym.make("procgen:procgen-heist-v0", use_backgrounds=False, render_mode="rgb_array",
                             distribution_mode="memory")
+        if(use_gpu):
+            self.device=torch.device('cuda')
+            self.map_location="cuda:0"
+        else:
+            self.device=torch.device('cpu')
+            self.map_location=self.device
+
         self.model = importlib.import_module(path_stub).Autoencoder()
-        self.model.load_state_dict(torch.load(path_model))
+        self.model.load_state_dict(torch.load(path_model,map_location=self.map_location))
+        self.model.to(self.device)
         self.model.eval()
         self.observation_space = Box(low=-np.inf, high=np.inf,
                                      shape=shape,
@@ -24,6 +32,7 @@ class AutoencoderBasicEnv(gym.Env):
 
     def _transform_ob(self, ob):
         obs = self.preprocess_observation(ob)
+        obs = obs.to(self.device)
         obs = self.model.encode(obs)
         obs = obs[0].cpu().detach().numpy()
         return obs
@@ -44,6 +53,7 @@ class AutoencoderBasicEnv(gym.Env):
 
     def _transform_render(self, ob):
         obs = self.preprocess_observation(ob)
+        obs = obs.to(self.device)
         obs = self.model(obs)
         obs = obs[0].cpu().detach().numpy() * 255
         obs = obs[0].astype(np.uint8)
