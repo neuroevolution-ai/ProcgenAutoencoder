@@ -89,7 +89,7 @@ def train(model, train_loader, optimizer, epoch, log_interval):
     number_samples = config["num_train"]
     log_interval = len(train_loader) // log_interval
     if log_interval == 0:
-        # If this happens, then after every batch an Log Message will be printed out2
+        # If this happens, then after every batch an Log Message will be printed out
         log_interval = 1
 
     for batch_index, data in enumerate(train_loader):
