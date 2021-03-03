@@ -25,6 +25,7 @@ parser.add_argument('--model_path', type=str, default="model_stubs.conv_unpool",
 args = parser.parse_args()
 config["logging_params"]['name'] = args.name
 config['data_params']['model_path'] = args.model_path
+device= torch.device('cuda:0' if config['data_params']['use_gpu'] else 'cpu')
 
 
 def create_folder_structure(directory, name_model):
@@ -68,7 +69,8 @@ def load_model():
     model_path = config['data_params']['model_path']
     autoencoder = importlib.import_module(model_path)
     model = autoencoder.Autoencoder()
-    model.cuda()
+    if(config['data_params']['use_gpu']):
+        model.cuda()
     return model
 
 
@@ -90,7 +92,7 @@ def train(model, train_loader, optimizer, epoch, log_interval):
         log_interval = 1
 
     for batch_index, data in enumerate(train_loader):
-        img = data.float().cuda()  / 255
+        img = data.float().to(device)  / 255
         output = model(img)
         output.append(batch_size/number_samples)
         loss = model.loss_function(output, input=img)
@@ -106,7 +108,8 @@ def train(model, train_loader, optimizer, epoch, log_interval):
 
     train_loss /= len(train_loader)
     print('Train Epoch:{}, Loss:{:.4f}'.format(epoch, float(train_loss)))
-    torch.cuda.empty_cache()
+    if (config['data_params']['use_gpu']):
+        torch.cuda.empty_cache()
     return train_loss
 
 
@@ -117,7 +120,7 @@ def test(model, test_loader, epoch):
     number_samples = config["num_test"]
     with torch.no_grad():
         for batch in test_loader:
-            img = batch.float().cuda() / 255
+            img = batch.float().to(device) / 255
             output = model(img)
             output.append(batch_size/number_samples)
             test_loss += model.loss_function(output, input=img).item()
@@ -173,7 +176,6 @@ def main():
     train_loader, test_loader = load_data()
     model = load_model()
     optimizer = setup_optimizer(model)
-#    print(summary(model, (3, 64, 64)))
     epoch_train_loss, epoch_test_loss, current_best_model = epoch_steps(model, train_loader, test_loader, optimizer,
                                                                         directory_checkpoint)
     path_model = save_model(current_best_model, directory_model, name, epoch_train_loss, epoch_test_loss)
