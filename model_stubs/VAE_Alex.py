@@ -100,8 +100,8 @@ class Autoencoder(BaseAutoencoder):
         z = self.reparameterize(mu, log_var)
         return [self.decode(z), mu, log_var]
 
-    def loss_function(self, args, input):
-        recon_x, mu, logvar = args[0], args[1], args[2]
+    def loss_function(self, input, output, args):
+        recon_x, mu, logvar = output, args[1], args[2]
 
         # Needed because pretrained Alex-Net uses this normalization-values
         normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],

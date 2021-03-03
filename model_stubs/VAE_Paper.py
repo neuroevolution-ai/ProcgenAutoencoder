@@ -95,8 +95,8 @@ class Autoencoder(BaseAutoencoder):
         z = self.reparameterize(mu, log_var)
         return [self.decode(z), mu, log_var]
 
-    def loss_function(self, args, input):
-        recon_x, mu, logvar = args[0], args[1], args[2]
+    def loss_function(self, input, output, args):
+        recon_x, mu, logvar = output, args[1], args[2]
         recons_loss = torch.mean((recon_x - input) ** 4)
         kld_loss = torch.mean(-0.5 * torch.sum(1 + logvar - mu ** 2 - logvar.exp(), axis=-1), axis=0)
         loss = recons_loss + self.lamda_kld_loss * kld_loss

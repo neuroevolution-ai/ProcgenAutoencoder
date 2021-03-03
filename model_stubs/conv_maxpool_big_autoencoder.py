@@ -47,6 +47,6 @@ class Autoencoder(BaseAutoencoder):
     def encode(self, input):
         return self.encoder(input)
 
-    def loss_function(self, args, input):
+    def loss_function(self, input, output, args):
         loss = nn.MSELoss()
-        return loss(args[0], input)
+        return loss(output, input)

@@ -117,7 +117,7 @@ class PerformanceEvaluation():
         for img in self.test_data:
             img_tensor = self.toTensor(img).cuda()
             result = self.model(img_tensor)
-            loss = self.model.loss_function(result, input=img_tensor).item()
+            loss = self.model.loss_function(input=img_tensor, output=result[0], args=result).item()
             loss = "{:.7f}".format(round(loss, 8))
             result = result[0].cpu().detach().numpy() * 255
             result = result[0].astype(np.uint8)

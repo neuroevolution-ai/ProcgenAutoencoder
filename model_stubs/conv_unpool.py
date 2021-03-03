@@ -72,6 +72,6 @@ class Autoencoder(BaseAutoencoder):
         return down3
 
 
-    def loss_function(self, args, input):
+    def loss_function(self, input, output, args):
         loss = nn.MSELoss()
-        return loss(args[0], input)
+        return loss(output, input)

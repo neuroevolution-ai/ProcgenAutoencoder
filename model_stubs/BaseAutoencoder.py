@@ -33,10 +33,11 @@ class BaseAutoencoder(nn.Module,abc.ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def loss_function(self, args, input):
+    def loss_function(self, input, output, args):
         '''
         After one forward-pass the loss should be calculated. This method should implement the calculation of the
         loss
+        :param output: the output of after one encoder-decoder forward pass.
         :param args: typically the result of "def forward" - args[0] containing the image-batch,
         further arguments are model dependent
         :param input: the original image-batch

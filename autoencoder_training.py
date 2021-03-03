@@ -95,7 +95,7 @@ def train(model, train_loader, optimizer, epoch, log_interval):
         img = data.float().to(device)  / 255
         output = model(img)
         output.append(batch_size/number_samples)
-        loss = model.loss_function(output, input=img)
+        loss = model.loss_function(input=img, output=output[0], args=output)
         loss.backward()
         train_loss += loss.item()
         optimizer.step()
@@ -123,7 +123,7 @@ def test(model, test_loader, epoch):
             img = batch.float().to(device) / 255
             output = model(img)
             output.append(batch_size/number_samples)
-            test_loss += model.loss_function(output, input=img).item()
+            test_loss += model.loss_function(input=img, output=output[0], args=output).item()
     test_loss /= len(test_loader)
 
     print('Test Epoch:{}, Loss:{:.4f}'.format(epoch, float(test_loss)))
