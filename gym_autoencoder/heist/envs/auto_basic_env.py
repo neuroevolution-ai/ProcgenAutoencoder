@@ -13,7 +13,7 @@ class AutoencoderBasicEnv(gym.Env):
     def __init__(self, path_stub, path_model ,shape, use_gpu=True):
         self.env = gym.make("procgen:procgen-heist-v0", use_backgrounds=False, render_mode="rgb_array",
                             distribution_mode="memory")
-        if(use_gpu):
+        if use_gpu:
             self.device=torch.device('cuda')
             self.map_location="cuda:0"
         else:
