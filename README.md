@@ -4,6 +4,10 @@
 [![Python 3.6+](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
 [![GitHub](https://img.shields.io/github/license/neuroevolution-ai/ProcgenAutoencoder)](https://github.com/neuroevolution-ai/ProcgenAutoencoder/blob/main/LICENSE)
 
+![](./screenshots/render_example.png ) 
+
+
+
 This repository was created in the internship Engineering Software Development WS2021 at the Karlsruhe Institute of Technology. 
 The goal of the internship was to create a Gym environment for the Procgen game _**Heist**_, which outputs an encoding of an autoencoder as observation space. 
 
@@ -15,8 +19,6 @@ This repository contains the created gym environments in the `gym_autoencoder`fo
 ```bash
 pip install -e .
 ```
-For full usage this additional package should be installed:
-- torchinfo : https://github.com/TylerYep/torchinfo
 
 This repository is tested on this package versions:
 -   python 3.8
