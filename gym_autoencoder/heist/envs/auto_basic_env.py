@@ -20,6 +20,7 @@ class AutoencoderBasicEnv(gym.Env):
                                      shape=shape,
                                      dtype=float)
         self.action_space = self.env.action_space
+        self.last_observation=None
 
     def _transform_ob(self, ob):
         obs = self.preprocess_observation(ob)
@@ -53,12 +54,14 @@ class AutoencoderBasicEnv(gym.Env):
 
     def step(self, action):
         ob, rew, done, info = self.env.step(action)
-        return ob, self._transform_ob(ob), rew, done, info
+        info['original_ob']=ob
+        self.last_observation=ob
+        return self._transform_ob(ob), rew, done, info
 
     def reset(self):
         return self._transform_ob(self.env.reset())
 
-    def render(self, ob, mode='human'):
-        obs = self._transform_render(ob)
+    def render(self, mode='human'):
+        obs = self._transform_render(self.last_observation)
         cv2.imshow("Result", obs)
         cv2.waitKey(1)

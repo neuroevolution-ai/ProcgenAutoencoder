@@ -20,10 +20,10 @@ After you installed your package , you can create an instance of the environment
 
 ```python
 import gym
-test_env = gym.make('gym_autoencoder:auto-unpool-v0')
+test_env = gym.make('gym_autoencoder:heist-auto-unpool-v0')
 while(True):
-    old_observation, observation, rew, done, info = test_env.step(test_env.action_space.sample())
-    test_env.render(old_observation)
+    observation, rew, done, info = test_env.step(test_env.action_space.sample())
+    test_env.render()
 ```
 You should than be able to see the the heist representation from the Autoencoder. The Agent starts making random moves.
 
