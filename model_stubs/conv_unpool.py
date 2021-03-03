@@ -39,9 +39,9 @@ class up(nn.Module):
         return outputs
 
 
-class Autoencoder(BaseAutoencoder):
+class ConvUnpoolAutoencoder(BaseAutoencoder):
     def __init__(self, in_channels=3):
-        super(Autoencoder, self).__init__()
+        super(ConvUnpoolAutoencoder, self).__init__()
         self.in_channels=in_channels
         self.down1=down(self.in_channels,16)
         self.down2=down(16,16)

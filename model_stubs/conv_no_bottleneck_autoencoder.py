@@ -8,9 +8,9 @@ Autoencoder based on Conv/MaxPooling Layers, without Bottleneck
 from torchinfo import summary
 
 
-class Autoencoder(BaseAutoencoder):
+class ConvNoBottleneckAutoencoder(BaseAutoencoder):
     def __init__(self):
-        super(Autoencoder, self).__init__()
+        super(ConvNoBottleneckAutoencoder, self).__init__()
         self.encoder = nn.Sequential( # like the Composition layer you built
             nn.Conv2d(3, 16, 3, stride=1),
             nn.ReLU(),

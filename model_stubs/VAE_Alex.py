@@ -15,13 +15,13 @@ Instead of Retraining the net, both perceptual loss and MSE_Loss are used
 '''
 
 
-class Autoencoder(BaseAutoencoder):
+class VAEAlexAutoencoder(BaseAutoencoder):
 
     def __init__(self,
                  latent_dim=64,
                  in_channels=3,
                 ):
-        super(Autoencoder, self).__init__()
+        super(VAEAlexAutoencoder, self).__init__()
 
         self.latent_dim = latent_dim
         # Build Encoder

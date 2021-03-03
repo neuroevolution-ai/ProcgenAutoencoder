@@ -9,9 +9,9 @@ Difference between conv_maxpool_autoencoder an this architecture is one more Lin
 filters
 '''
 
-class Autoencoder(BaseAutoencoder):
+class ConvMaxPoolBigAutoencoder(BaseAutoencoder):
     def __init__(self,latent_dim=32):
-        super(Autoencoder, self).__init__()
+        super(ConvMaxPoolBigAutoencoder, self).__init__()
         self.encoder = nn.Sequential(  # like the Composition layer you built
             nn.Conv2d(3, 16, 3, stride=2, padding=1),
             nn.ReLU(),

@@ -9,9 +9,9 @@ Autoencoder based of a bachelor-thesis. Basically an Autoencoder with Conv2D and
 layer 
 '''
 
-class Autoencoder(BaseAutoencoder):
+class ConvMaxpoolAutoencoder(BaseAutoencoder):
     def __init__(self,latent_dim=32):
-        super(Autoencoder, self).__init__()
+        super(ConvMaxpoolAutoencoder, self).__init__()
         self.encoder = nn.Sequential(  # like the Composition layer you built
             nn.Conv2d(3, 16, 3, padding=1),
             nn.ReLU(),

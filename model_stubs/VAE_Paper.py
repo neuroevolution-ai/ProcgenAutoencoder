@@ -13,13 +13,13 @@ lamda_kl_loss = Batch_size / Number of Samples
 '''
 
 
-class Autoencoder(BaseAutoencoder):
+class VAEPaperAutoencoder(BaseAutoencoder):
 
     def __init__(self,
                  latent_dim=22,
                  in_channels=3,
                  lamda_kl_loss=0.0001) -> None:
-        super(Autoencoder, self).__init__()
+        super(VAEPaperAutoencoder, self).__init__()
 
         self.latent_dim = latent_dim
         self.lamda_kld_loss=lamda_kl_loss

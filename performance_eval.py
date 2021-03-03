@@ -8,18 +8,19 @@ import numpy as np
 import torch
 from torchinfo import summary as sf
 from utils.NumpyDataLoader import NumpyDataLoader
+import utils.model_factory as model_factory
 
 
 class PerformanceEvaluation():
-    def __init__(self, path, path_stub, path_test_data, model=None):
+    def __init__(self, path, model_name, path_test_data, model=None):
         self.path = path
         self.path_metrics = path + "metrics.npz"
         self.name = path.split("/")[-2]
-        self.path_stub = path_stub
+        self.model_name = model_name
         if model is not None:
             self.model = model
         else:
-            self.model = importlib.import_module(path_stub).Autoencoder()
+            self.model = model_factory.factory(model_name)
             self.model.load_state_dict(torch.load(path + self.name + ".pt"))
         self.model.eval()
         self.test_data = NumpyDataLoader(path_test_data)
@@ -188,8 +189,8 @@ class PerformanceEvaluation():
 
 if __name__ == '__main__':
     path = "./trained_models/Testing/"
-    path_model_stub = "model_stubs.conv_unpool"
+    model_name = "Conv_Unpool"
     test_samples_filepath = "data/heist/test_samples_memory_noBack_balanced2.npy"
 
-    perforcman = PerformanceEvaluation(path, path_model_stub, test_samples_filepath)
+    perforcman = PerformanceEvaluation(path, model_name, test_samples_filepath)
     perforcman.evaluation()

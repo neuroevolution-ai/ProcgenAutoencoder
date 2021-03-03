@@ -5,12 +5,13 @@ import gym
 import numpy as np
 import torch
 from gym.spaces import Box
+import utils.model_factory as model_factory
 
 
 class AutoencoderBasicEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, path_stub, path_model ,shape, use_gpu=True):
+    def __init__(self, model_name, path_model, shape, use_gpu=True):
         self.env = gym.make("procgen:procgen-heist-v0", use_backgrounds=False, render_mode="rgb_array",
                             distribution_mode="memory")
         if use_gpu:
@@ -20,7 +21,7 @@ class AutoencoderBasicEnv(gym.Env):
             self.device=torch.device('cpu')
             self.map_location=self.device
 
-        self.model = importlib.import_module(path_stub).Autoencoder()
+        self.model =model_factory.factory(model_name)
         self.model.load_state_dict(torch.load(path_model,map_location=self.map_location))
         self.model.to(self.device)
         self.model.eval()

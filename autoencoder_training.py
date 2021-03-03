@@ -6,6 +6,7 @@ import numpy as np
 import torch
 import yaml
 from torch.utils.data import Dataset
+import utils.model_factory as model_factory
 
 import performance_eval as perf
 from utils.NumpyDataLoader import NumpyDataLoader
@@ -17,14 +18,14 @@ with open("training_hyperparameter.yaml", 'r') as file:
         print(exc)
 
 parser = argparse.ArgumentParser(description='Parameter for Model and Model-Name')
-parser.add_argument('--name', type=str, default="ModelNew",
+parser.add_argument('--name', type=str, default="AlexTrain",
                     help='Name Model')
-parser.add_argument('--model_path', type=str, default="model_stubs.conv_unpool",
-                    help='Modul Stub')
+parser.add_argument('--model_name', type=str, default="Conv_Unpool",
+                    help='Modul Name, see utils_model_factory')
 
 args = parser.parse_args()
 config["logging_params"]['name'] = args.name
-config['data_params']['model_path'] = args.model_path
+config['data_params']['model_name'] = args.model_name
 device= torch.device('cuda:0' if config['data_params']['use_gpu'] else 'cpu')
 
 
@@ -66,9 +67,8 @@ def load_data():
 
 
 def load_model():
-    model_path = config['data_params']['model_path']
-    autoencoder = importlib.import_module(model_path)
-    model = autoencoder.Autoencoder()
+    model_name = config['data_params']['model_name']
+    model = model_factory.factory(model_name)
     if(config['data_params']['use_gpu']):
         model.cuda()
     return model
