@@ -1,3 +1,4 @@
+import abc
 from abc import abstractmethod
 
 from torch import nn
@@ -7,7 +8,7 @@ from torch import nn
 Every implemented Autoencoder should inherit this base class
 '''
 
-class BaseAutoencoder(nn.Module):
+class BaseAutoencoder(nn.Module,abc.ABC):
 
     def __init__(self):
         super(BaseAutoencoder, self).__init__()
@@ -19,7 +20,7 @@ class BaseAutoencoder(nn.Module):
         :param input: The input image. Can be single image or batch of images , Tensor of [N x C x H x W]
         :return: encoder-result
         '''
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     def forward(self, input):
@@ -29,7 +30,7 @@ class BaseAutoencoder(nn.Module):
         :return: List of results of the forward pass. The first argument should contain the result image-batch,
         further arguments are model dependent
         '''
-        raise NotImplemented
+        raise NotImplementedError
 
     @abstractmethod
     def loss_function(self, args, input):
@@ -41,4 +42,4 @@ class BaseAutoencoder(nn.Module):
         :param input: the original image-batch
         :return: The calculated loss
         '''
-        raise NotImplemented
+        raise NotImplementedError
