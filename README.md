@@ -1,6 +1,9 @@
 
 # Procgen Autoencoders
 
+[![Python 3.6+](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
+[![GitHub](https://img.shields.io/github/license/neuroevolution-ai/ProcgenAutoencoder)](https://github.com/neuroevolution-ai/ProcgenAutoencoder/blob/main/LICENSE)
+
 This repository was created in the internship Engineering Software Development WS2021 at the Karlsruhe Institute of Technology. 
 The goal of the internship was to create a Gym environment for the Procgen game _**Heist**_, which outputs an encoding of an autoencoder as observation space. 
 
@@ -14,6 +17,17 @@ pip install -e .
 ```
 For full usage this additional package should be installed:
 - torchinfo : https://github.com/TylerYep/torchinfo
+
+This repository is tested on this package versions:
+-   python 3.8
+-  opencv	4.5.0	
+-  torchvision	0.8.1	
+- torchinfo	0.0.5	
+- procgen	0.10.4	
+- pytorch	1.7.0	
+- pyyaml	5.3.1
+- matplotlib	3.3.2	
+
    
 ## Use Gym-Environments
 After you installed your package , you can create an instance of the environment with:
