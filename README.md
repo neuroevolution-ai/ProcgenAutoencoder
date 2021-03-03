@@ -30,12 +30,12 @@ You should than be able to see the the heist representation from the Autoencoder
 In this repository there are 6 evironments for the game heist, with 6 different Autoencoder architectures namely:
 
 ```
-gym_autoencoder:auto-unpool-v0
-gym_autoencoder:auto-maxpool-v0
-gym_autoencoder:auto-maxpool-big-v0
-gym_autoencoder:auto-no-bottleneck-v0
-gym_autoencoder:vae-alex-v0
-gym_autoencoder:vae-paper-v0
+gym_autoencoder:heist-auto-unpool-v0
+gym_autoencoder:heist-auto-maxpool-v0
+gym_autoencoder:heist-auto-maxpool-big-v0
+gym_autoencoder:heist-auto-no-bottleneck-v0
+gym_autoencoder:heist-vae-alex-v0
+gym_autoencoder:heist-vae-paper-v0
 ```
 
 The architectures used can be examined in the model_stubs folder. A short description can be found in the "Autoencoder Architectures" section.
