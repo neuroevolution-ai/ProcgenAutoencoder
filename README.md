@@ -12,7 +12,7 @@ This repository contains the created gym environments in the `gym_autoencoder`fo
 ```bash
 pip install -e .
 ```
-For full usage this additional pakets should be installed:
+For full usage this additional package should be installed:
 - torchinfo : https://github.com/TylerYep/torchinfo
    
 ## Use Gym-Environments
@@ -65,7 +65,7 @@ Training generates checkpoints if test loss gets better. Early Stopping is used 
 
 ### Evaluation Autoencoder
 
-Speed of Autoencoder (GPU & CPU) will be tested with Batch Size 1 and 64. odel Architecture and Speed will 
+Speed of Autoencoder (GPU & CPU) will be tested with Batch Size 1 and 64. Model Architecture and Speed will 
 be saved in a `summary.txt` File.
 A Video will be created like featured below. Also Graph containing Train/Test Loss per Epoch will be saved.
 If you want to make further evaluations feel free to use the generated `metrics.npy` and the model itself.
@@ -89,7 +89,7 @@ Every Autoencoder inherit from `BaseAutoencoder.py` and should overwrite `encode
 
 | Encoding Autoencoder | Autoencoder Name | Description | Encoding Time
 | ------ | ---- | ---- | ---------------------|
-| | `conv_maxpool_autoencoder.py`  | Autoencoder based on Convolutional Layers and Pooling Layers, afterwords an Bottleneck Layer. Afterwards Transposed Convolutional Layers are used | GPU: 0.4374ms <br /> CPU: 1.211ms
+| | `conv_maxpool_autoencoder.py`  | Autoencoder based on Convolutional Layers and Pooling Layers, followed by a Bottleneck Layer. Afterwards Transposed Convolutional Layers are used | GPU: 0.4374ms <br /> CPU: 1.211ms
 | ![Alt text](./screenshots/Conv_MaxPool_big_example.png)  |  `conv_maxpool_big_autoencoder.py`| A deeper version of `conv_maxpool_autoencoder.py`  with more kernels used.
 | Content Cell  |  `conv_no_bottleneck_autoencoder.py`| Autoencoder with Convolutional and Maxpooling Layer, but without any bottleneck layer
 | ![Alt text](./screenshots/Conv_Unpool_example.png)| `conv_unpool.py` | Autoencoder with Convolutional, Maxpooling and afterwards Unpooling Layers. Inspired by https://mi.eng.cam.ac.uk/projects/segnet/ (Little Smaller Version, than Segnet) | GPU: 1.130ms <br /> CPU: 2.673ms
