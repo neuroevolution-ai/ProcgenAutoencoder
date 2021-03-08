@@ -105,11 +105,12 @@ Every Autoencoder inherit from `BaseAutoencoder.py` and should overwrite `encode
 
 | Encoding Autoencoder | Autoencoder Name | Description | Encoding Time
 | ------ | ---- | ---- | ---------------------|
-| | `conv_maxpool_autoencoder.py`  | Autoencoder based on Convolutional Layers and Pooling Layers, followed by a Bottleneck Layer. Afterwards Transposed Convolutional Layers are used | GPU: 0.4374ms <br /> CPU: 1.211ms
-| ![Alt text](./screenshots/Conv_MaxPool_big_example.png)  |  `conv_maxpool_big_autoencoder.py`| A deeper version of `conv_maxpool_autoencoder.py`  with more kernels used.
-| Content Cell  |  `conv_no_bottleneck_autoencoder.py`| Autoencoder with Convolutional and Maxpooling Layer, but without any bottleneck layer
-| ![Alt text](./screenshots/Conv_Unpool_example.png)| `conv_unpool.py` | Autoencoder with Convolutional, Maxpooling and afterwards Unpooling Layers. Inspired by https://mi.eng.cam.ac.uk/projects/segnet/ (Little Smaller Version, than Segnet) | GPU: 1.130ms <br /> CPU: 2.673ms
+ ![Alt text](./screenshots/Conv_Unpool_example.png)| `conv_unpool.py` | Autoencoder with Convolutional, Maxpooling and afterwards Unpooling Layers. Inspired by https://mi.eng.cam.ac.uk/projects/segnet/ (Little Smaller Version, than Segnet) | GPU: 1.130ms <br /> CPU: 2.673ms
 | ![Alt text](./screenshots/VAE_Paper_example.png) _______________________| `VAE_Paper.py`  | Varitional-Autoencoder based on https://arxiv.org/pdf/1803.10122.pdf | GPU:0.797ms <br /> CPU:1.646ms
 | ![Alt text](./screenshots/VAE_Alex_example.png) | `VAE_Alex.py` | Same Autoencoder as `VAE_Paper.py` , but Perceptional Loss from AlexNet is used | GPU: 0.792ms <br /> CPU:1.688ms
+| ![Alt text](./screenshots/Conv_Maxpool_example.png) | `conv_maxpool_autoencoder.py`  | Autoencoder based on Convolutional Layers and Pooling Layers, followed by a Bottleneck Layer. Afterwards Transposed Convolutional Layers are used | GPU: 0.4374ms <br /> CPU: 1.211ms
+| ![Alt text](./screenshots/Conv_MaxPool_big_example.png)  |  `conv_maxpool_big_autoencoder.py`| A deeper version of `conv_maxpool_autoencoder.py`  with more kernels used. | GPU 0.5217ms <br /> CPU: 1.0303ms
+| ![Alt text](./screenshots/Conv_No_Bottleneck_example.png) |  `conv_no_bottleneck_autoencoder.py`| Autoencoder with Convolutional and Maxpooling Layer, but without any bottleneck layer | GPU 0.5253ms <br /> CPU: 1.8314ms
+|
 
 
