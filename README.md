@@ -53,6 +53,12 @@ gym_autoencoder:heist-auto-no-bottleneck-v0
 gym_autoencoder:heist-vae-alex-v0
 gym_autoencoder:heist-vae-paper-v0
 ```
+You can switch between CPU/GPU usage with the argument ```use_gpu```. Default value is True
+ 
+ Example:
+```python
+test_env = gym.make('gym_autoencoder:heist-auto-unpool-v0',use_gpu=False)
+```
 
 The architectures used can be examined in the model_stubs folder. A short description can be found in the "Autoencoder Architectures" section.
 
